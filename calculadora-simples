@@ -1,0 +1,188 @@
+#include <stdio.h>
+#include <math.h>
+
+//Calculadora
+
+void soma(){
+	int qtd, res=0;
+	printf("==================================================\n");
+	printf("Digite o numero de valores que gostaria de somar: ");
+	fflush(stdout);
+	scanf("%d", &qtd);
+
+    float vet[qtd];
+	for(int i = 0; i < qtd; i++){
+	printf("Digite o %d° numero: ", (i+1));
+	fflush(stdout);
+	scanf("%f", &vet[i]);
+	}
+	for(int i = 0; i < qtd; i++){
+		res = res + vet[i];
+	}
+	printf("Valores = ");
+	for(int i = 0; i < qtd; i++){
+		printf("| %.1f ", vet[i]);
+	}
+	printf("\nA soma dos valores é: %d\n", res);
+}
+void subtracao(){
+	float n1, n2, res = 0;
+	printf("==================================================\n");
+	printf("Digite o valor que gostaria de subtrair: ");
+	fflush(stdout);
+	scanf("%f", &n1);
+
+	printf("Agora digite qual deve subitraílo: ");
+	fflush(stdout);
+	scanf("%f", &n2);
+
+	res = n1 - n2;
+	printf("A subtração de %.2f e %.2f = %.2f\n", n1, n2, res);
+}
+void divisao(){
+	float n1, n2, res = 0;
+	printf("==================================================\n");
+	printf("Digite o valor que gostaria de dividir: ");
+	fflush(stdout);
+	scanf("%f", &n1);
+
+	printf("Agora digite qual deve dividilo: ");
+	fflush(stdout);
+	scanf("%f", &n2);
+
+	res = n1 / n2;
+	printf("Fórmula: ");
+	printf("%.2f / %.2f\n", n1, n2);
+	printf("A divisão de %.2f e %.2f = %.2f\n", n1, n2, res);
+}
+void multiplicacao(){
+	int qtd, res=1;
+	printf("==================================================\n");
+	printf("Digite o numero de valores que gostaria de multiplicar: \n");
+	fflush(stdout);
+	scanf("%d", &qtd);
+
+	float vet[qtd];
+	for(int i = 0; i < qtd; i++){
+	printf("Digite o %d° numero: ", (i+1));
+	fflush(stdout);
+	scanf("%f", &vet[i]);
+	}
+	for(int i = 0; i < qtd; i++){
+		res = res * vet[i];
+	}
+	printf("Valores = ");
+	for(int i = 0; i < qtd; i++){
+	printf("| %.1f ", vet[i]);
+	}
+	printf("\nA multiplicação dos valores é: %d\n", res);
+}
+void radiciacao(){
+	float n, res = 0;
+	printf("==================================================\n");
+	printf("Digite o valor: ");
+	fflush(stdout);
+	scanf("%f", &n);
+
+    res = sqrt(n);
+	printf("A raiz de %.1f = %.2f\n", n, res);
+}
+void potenciacao(){
+	float n1, n2, res = 0;
+	printf("==================================================\n");
+	printf("Digite o valor que gostaria de elevar a potência: ");
+	fflush(stdout);
+	scanf("%f", &n1);
+
+	printf("Agora digite qual o valor da potência: ");
+	fflush(stdout);
+	scanf("%f", &n2);
+
+	res = pow(n1, n2);
+	printf("Fórmula: ");
+	printf("%.1f elevado à %.1f\n", n1, n2);
+	printf("O %.1f elevado à %.1f = %.2f\n", n1, n2, res);
+}
+void media(){
+	int qtd;
+	float soma = 0, media = 0;
+	printf("==================================================\n");
+	printf("Digite a quantidade de valores: ");
+	fflush(stdout);
+	scanf("%d", &qtd);
+
+    float vet[qtd];
+	for(int i = 0; i < qtd; i++){
+	printf("Digite o %d° numero: ", (i+1));
+	fflush(stdout);
+	scanf("%f", &vet[i]);
+	}
+	for(int i = 0; i < qtd; i++){
+		soma = soma + vet[i];
+	}
+	media = soma / qtd;
+	printf("Fórmula: ");
+	printf("média = soma dos valores / quantidade\n");
+	printf("Valores = ");
+	for(int i = 0; i < qtd; i++){
+		printf("| %.1f ", vet[i]);
+	}
+	printf("\nA média é: %.2f\n", media);
+}
+void menu(){
+	int opcao;
+	printf("==================================================\n");
+	printf("================== Calculadora ==================\n");
+	printf("==================================================\n");
+	printf("Escolha uma opção de Operação:\n"
+			"[1] - Soma\n[2] - Subtração\n[3] - Divisão\n"
+			"[4] - Multiplicação\n[5] - Radiciação\n"
+			"[6] - Potenciação\n[7] - Média\n"
+			"[0] - Sair\n");
+	fflush(stdout);
+	scanf("%d", &opcao);
+
+
+	switch (opcao){
+	case 1:
+		soma(); //chama a função void soma
+		menu(); //chama a função void menu
+		break;
+	case 2:
+		subtracao(); //chama a função void subtracao
+		menu(); //chama a função void menu
+		break;
+	case 3:
+		divisao(); //chama a função void divisao
+		menu(); //chama a função void menu
+		break;
+	case 4:
+		multiplicacao(); //chama a função void multiplicacao
+		menu(); //chama a função void menu
+		break;
+	case 5:
+	  radiciacao(); //chama a função void radiciacao
+	  menu(); //chama a função void menu
+	    break;
+	case 6:
+		potenciacao(); //chama a função void potenciacao
+		menu(); //chama a função void menu
+		break;
+	case 7:
+		media(); //chama a função void media
+		menu(); //chama a função void menu
+		break;
+	case 0:
+		printf("======== Obrigado por usar a calculadora! ========\n");
+		printf("==================================================\n");
+		break;
+	default:
+		printf("Opção Inválida!!\n");
+		menu(); //chama a função void menu
+		break;
+	}
+}
+int main(){
+	menu(); //chama a função void menu
+  return 0;
+}
