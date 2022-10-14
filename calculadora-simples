@@ -132,6 +132,7 @@ void media(){
 void menu(){
 	int opcao;
 	printf("==================================================\n");
+	printf("================= Bem Vindo(a) à =================\n");
 	printf("================== Calculadora ==================\n");
 	printf("==================================================\n");
 	printf("Escolha uma opção de Operação:\n"
